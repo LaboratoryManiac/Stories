@@ -23,6 +23,7 @@ a
 }
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
 // Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
 //
@@ -125,15 +126,19 @@ macros.emptyInv = {
 
 
 
-</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="860,396" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
+
+</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,396" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
 
 And yet, there is something much darker at work, something much more terrifying and horrible than anyone could possibly imagine. In the darkest depths of the Earth, something has been slumbering for millenia. And, finally, it has begun to stir.//
 
+[[Rise and shine.]]
 &lt;&lt;initInv&gt;&gt;
-
 &lt;&lt;set $PlayerMoney = 500&gt;&gt;
-
-[[Rise and shine.]]</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
+&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;drowning&quot; loop play&gt;&gt;
+You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
 
 In 1917 the United States entered the Great War. You and several of your friends signed up early on. And boy, did you get in the thick of it. You fought in the mud and blood of the trenches for a year, and then during the German Spring Offensive you were hit in the leg by shrapnel from a shell. Permanent leg damage and shell shock was enough to ensure you left the battlefield for good. You still have a pretty serious limp.
 
@@ -178,4 +183,5 @@ And it seems she left me no choice. Well, I&#39;ve heard of Arkham. It&#39;s not
 [[It&#39;s time to start packing.]]</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="" position="583,814" size="100,100">[[Inventory]]</tw-passagedata><tw-passagedata pid="7" name="Inventory" tags="" position="583,964" size="100,100">You have $$$PlayerMoney.
 &lt;&lt;if $inventory.length == 0&gt;&gt;You are not carrying anything.&lt;&lt;else&gt;&gt;You are carrying:
 &lt;&lt;invWithLinks&gt;&gt; &lt;&lt;endif&gt;&gt;
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="785,996" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="786,997" size="100,100">&lt;&lt;audio &quot;drowning&quot; stop&gt;&gt;
+&lt;&lt;audio &quot;prologue_credits&quot; play&gt;&gt;</tw-passagedata></tw-storydata>
