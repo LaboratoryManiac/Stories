@@ -1,4 +1,4 @@
-<tw-storydata name="The Call of Cthulhu" startnode="1" creator="Twine" creator-version="2.2.1" ifid="E9104191-9A0C-4594-84DA-E8E1E3082B28" zoom="1" format="SugarCube" format-version="2.27.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre:400,400i,700,700i');
+<tw-storydata name="The Call of Cthulhu" startnode="14" creator="Twine" creator-version="2.2.1" ifid="E9104191-9A0C-4594-84DA-E8E1E3082B28" zoom="1" format="SugarCube" format-version="2.27.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre:400,400i,700,700i');
 
 body, tw-story
 {
@@ -98,6 +98,8 @@ img.float-right {
 .shake {
 	display: inline-block;
 }
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
 // Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
 //
@@ -211,21 +213,13 @@ postdisplay['fadeIn-text'] = function (taskName) {
 
 // fading-macro-set.min.js, for SugarCube 2, by Chapel
 ;Macro.add("fadein",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).hide().delay(a).fadeIn(t)}}),Macro.add("fadeout",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).delay(a).fadeOut(t)}});
-// end fading-macro-set.min.js</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,394" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
+// end fading-macro-set.min.js
+
+</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,394" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
 
 And yet, there is something much darker at work, something much more terrifying and horrible than anyone could possibly imagine. In the darkest depths of the Earth, something has been slumbering for millenia. And, finally, it has begun to stir.//
 
-[[Rise and shine.]]
-&lt;&lt;initInv&gt;&gt;\
-&lt;&lt;set $PlayerMoney = 500&gt;&gt;\
-&lt;&lt;set $rainsoundtrack to false&gt;&gt;\
-&lt;&lt;cacheaudio &quot;car_start&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;battle&quot; &quot;media/soundtrack/battle.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;rain&quot; &quot;media/soundtrack/rain.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;battle&quot; time 60 play&gt;&gt;\
+[[Rise and shine.]]</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;battle&quot; time 60 play&gt;&gt;\
 You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
 
 In 1917 the United States entered the Great War. You and several of your friends signed up early on. And boy, did you get in the thick of it. You fought in the mud and blood of the trenches for a year, and then during the German Spring Offensive you were hit in the leg by shrapnel from a shell. Permanent leg damage and shell shock was enough to ensure you left the battlefield for good. You still have a pretty serious limp.
@@ -300,8 +294,6 @@ You toss your key on the Carters&#39; doormat and exit the building. Outside it&
 [[To Arkham!]]</tw-passagedata><tw-passagedata pid="9" name="To Arkham!" tags="" position="789,1149" size="100,100">&lt;&lt;audio &quot;rain&quot; stop&gt;&gt;\
 &lt;&lt;audio &quot;car_start&quot; play&gt;&gt;\
 &lt;&lt;audio &quot;prologue_credits&quot; play&gt;&gt;\
-&lt;video src=&quot;media\video\deep_sea&quot; width=&quot;1604&quot; height=&quot;938&quot; play&gt;
-&lt;/video&gt;
 \
 &lt;div class=&quot;fadeIn titleCard&quot;&gt;\
 	&lt;div align=&#39;center&#39; style=&#39;font-size: 600%;&#39;&gt;\
@@ -309,13 +301,13 @@ You toss your key on the Carters&#39; doormat and exit the building. Outside it&
 	&lt;/div&gt;\
 &lt;/div&gt;\
 \
-&lt;&lt;fadein 4s 15s&gt;&gt;
+&lt;&lt;fadein 4s 7s&gt;&gt;
 	Jack Rodden
 &lt;&lt;/fadein&gt;&gt;
 
 
 
-&lt;&lt;fadein 4s 18s&gt;&gt;
+&lt;&lt;fadein 4s 14s&gt;&gt;
 	[[The Great Dreamer beckons...]]
 &lt;&lt;/fadein&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="M1911" tags="" position="399,627" size="100,100">&lt;img src=&quot;media\images\M1911.jpg&quot; class=&quot;float-left&quot;&gt;
 
@@ -353,4 +345,38 @@ A sturdy and modern flashlight. Each cell illuminates for an average of 2-4 hour
 
 
 King George IV&#39;s pure malt scotch whiskey. Strong and with a nice bite, just how you like it.
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="The Great Dreamer beckons..." tags="" position="788,1299" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="The Great Dreamer beckons..." tags="" position="790,1320" size="100,100">&lt;&lt;audio &quot;car_stop&quot; play&gt;&gt;\
+You&#39;ve been on the road for a little over an hour, and not a word has been spoken by your driver. You&#39;ve managed to preoccupy yourself with watching the countryside roll past, but in the last few minutes it&#39;s been swept away and replaced by drab buildings and the occasional person. At a guess, you&#39;d say you&#39;ve entered Salem. 
+
+&quot;We&#39;re stopping off for gas here. Only 6 or so miles till Arkham now.&quot;
+
+//Oh, he&#39;s finally opening up.//
+
+&quot;Wait here. I&#39;ll be back in a few minutes.&quot; He walks off towards a gas station at the corner of the street.
+
+[[Get out of the car.]]
+
+[[Stay seated.]]</tw-passagedata><tw-passagedata pid="14" name="Introduction" tags="" position="854,236" size="100,100">Welcome to The Call of Cthulhu! I hope you enjoy the game.
+
+Warnings/hints:
+
+Lots of sound, so headphones or a low volume are recommended.
+
+Every choice can change the game. Don&#39;t expect any choice you make to be meaningless (once the prologue has ended).
+
+Only play if you know you&#39;re mature, there&#39;s no age limit but probably no 10 year olds or anything.
+
+[[Cthulhu calls...-&gt;Boston, Massachusetts - 1920]]
+
+&lt;&lt;initInv&gt;&gt;\
+&lt;&lt;set $PlayerMoney = 500&gt;&gt;\
+&lt;&lt;set $rainsoundtrack to false&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_start&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_stop&quot; &quot;media/audio/car_stop.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_door&quot; &quot;media/audio/car_door.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;battle&quot; &quot;media/soundtrack/battle.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;rain&quot; &quot;media/soundtrack/rain.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="15" name="Get out of the car." tags="" position="715,1470" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="16" name="Stay seated." tags="" position="865,1470" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
