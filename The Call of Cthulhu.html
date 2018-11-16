@@ -1,0 +1,181 @@
+<tw-storydata name="The Call of Cthulhu" startnode="1" creator="Twine" creator-version="2.2.1" ifid="E9104191-9A0C-4594-84DA-E8E1E3082B28" zoom="1" format="SugarCube" format-version="2.27.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre:400,400i,700,700i');
+
+body, tw-story
+{
+  font-family: 'Averia Serif Libre', cursive;
+  font-size: 18px;
+}
+
+body
+{
+  background-color: #f5fff0;
+  color: #002E20;
+}
+ 
+a
+{
+  color: #632A30;
+}
+
+#ui-bar, #ui-body
+{
+  background-color: #00825A;
+}
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
+// Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
+//
+// Instructions:
+//
+// 1. In a passage, check if there's an item in the inventory...
+// ...if not, give the user the option to link to a passage that adds it to inventory:
+// <<if $inventory.indexOf("An Unsigned Note") == -1>>There is a note here. [[Pick up the note.]]<<endif>>
+//
+// 2. In a passage, check if there's an item in the inventory..
+// ...if so, give the user a choice to progress to a new passage:
+// <<if $inventory.indexOf("The Golden Key") != -1>>[[Unlock the door.]]<<endif>>
+//
+// 3. To add an "Inventory" link in your sidebar menu, create a passage named "StoryMenu".
+// In it, create a link to your inventory's passage: [[Inventory]] or [[Backpack]], for example.
+// Create a passage named "Inventory", and in it, write something like the following:
+// <<if $inventory.length == 0>>You are not carrying anything.<<else>>You are carrying:
+// <<invWithLinks>> <<endif>>
+// <<back>>
+
+// A helper function for the following macros.
+window.getInv = function() {
+  return state.active.variables.inventory;
+}
+
+// Starts your inventory. You need to call this once at the start of your game in order to make the inventory work.
+// Usage: Place <<initInv>> in your StoryInit passage. Don't have a StoryInit passage? Make one.
+macros.initInv = {
+  handler: function(place, macroName, params, parser) {
+    state.active.variables.inventory = [];
+  }
+};
+
+// Add an item to your inventory:
+// Usage: <<addToInv rock>> or <<addToInv "a smooth rock">>
+macros.addToInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    if (state.active.variables.inventory.indexOf(params[0]) == -1) {
+      state.active.variables.inventory.push(params[0]);
+    }
+  }
+};
+
+// Removes an item from your inventory
+// Usage: <<removeFromInv rock>> or <<removeFromInv "a smooth rock">>
+macros.removeFromInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    var index = state.active.variables.inventory.indexOf(params[0]);
+    if (index != -1) {
+      state.active.variables.inventory.splice(index, 1);
+    }
+  }
+};
+
+// Display the inventory as a list: Rock, Paper, Scissors
+// This can go in any passage, but the best spot would be your [[Inventory]] passage.
+// Usage: <<inv>>
+macros.inv = {
+  handler: function(place, macroName, params, parser) {
+    if (state.active.variables.inventory.length == 0) {
+      new Wikifier(place, 'nothing');
+    } else {
+      new Wikifier(place, state.active.variables.inventory.join(','));
+    }
+  }
+};
+
+// Display the inventory as a series of links to passages with the same names.
+// This can go in any passage, but the best spot would be your [[Inventory]] passage.
+// Usage: <<invWithLinks>>
+// If those passages don't exist, the links will be broken.
+// There is a line break after every item in the inventory.
+macros.invWithLinks = { 
+  handler: function(place, macroName, params, parser) {
+    if (state.active.variables.inventory.length == 0) {
+      new Wikifier(place, 'nothing');
+    } else {
+      new Wikifier(place, '[[' + state.active.variables.inventory.join(']]<br>[[') + ']]');
+    }
+  }
+};
+
+// Empty the inventory entirely.
+// Note: This is not like "dropping" an object; they are not added to the current room/passage. It just erases them all entirely.
+// Usage: <<emptyInv>>
+macros.emptyInv = { 
+  handler: function(place, macroName, params, parser) {
+    state.active.variables.inventory = []
+  }
+};
+// End Inventory Macros
+
+
+
+</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="860,396" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
+
+And yet, there is something much darker at work, something much more terrifying and horrible than anyone could possibly imagine. In the darkest depths of the Earth, something has been slumbering for millenia. And, finally, it has begun to stir.//
+
+&lt;&lt;initInv&gt;&gt;
+
+&lt;&lt;set $PlayerMoney = 500&gt;&gt;
+
+[[Rise and shine.]]</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
+
+In 1917 the United States entered the Great War. You and several of your friends signed up early on. And boy, did you get in the thick of it. You fought in the mud and blood of the trenches for a year, and then during the German Spring Offensive you were hit in the leg by shrapnel from a shell. Permanent leg damage and shell shock was enough to ensure you left the battlefield for good. You still have a pretty serious limp.
+
+And you weren&#39;t the only one hit by that shell. Your pal Tommy Robins - you&#39;d known him since you were 3. You can still remember the numbness in your leg, the ringing in your ears - then you see Tommy... his face is gone. His mouth is open but you can&#39;t hear anything, and he grabs you, one eye still staring into your soul, and then the blood starts flowing out just like a red waterfall, all over your uniform and your face, and then you can hear again - shells are pounding the ground, and he&#39;s screaming, &quot;James! James! James!&quot;
+
+&quot;JAMES!&quot;
+
+You shoot up like a rocket, sideways off your couch and onto the floor. Your head slams into the wooden boards. It was aching enough as it was.
+
+Someone&#39;s pounding on your door. Evidently they already know who you are.
+
+[[Open the door.]]
+
+[[Take in the situation.]]</tw-passagedata><tw-passagedata pid="3" name="Open the door." tags="" position="785,696" size="100,100">You unlock the latch on the door, and it instantly flies open, narrowly missing your sorry skull. Your landlady appears in the doorway. The she-devil looks even madder than usual.
+&quot;Where&#39;s my rent!?&quot;
+
+[[&quot;I... uh...&quot;-&gt;Eviction]]
+
+[[&quot;I don&#39;t have it on me, but-&quot;-&gt;Eviction]]
+
+[[&quot;Look I know it&#39;s overdue, once I-&quot;-&gt;Eviction]]</tw-passagedata><tw-passagedata pid="4" name="Take in the situation." tags="" position="935,696" size="100,100">You stagger to your feet, and slowly look around so as to not burst your brain. You&#39;re in your office, located on the 1st floor of an apartment building in the middle of Boston. Everything seems to be as it was the last you remember, an- when //was// the last you remember?
+
+Last night you were sitting back in your armchair at your desk, re-reading the file of an old missing persons case from a few months back. Nothing that interesting, just some poor old bugger in Salem. Yeah, witch-trial Salem. You had a glass of whiskey. Looking over to your desk now, you spot a bottle of Scotch, completely drained. 
+
+It&#39;s all adding up.
+
+&quot;FOR THE LOVE OF GOD, JAMES WILSON!&quot;
+
+And that&#39;s your landlady, Mrs Carter. You&#39;d better answer the door.
+
+[[Open the door.]]</tw-passagedata><tw-passagedata pid="5" name="Eviction" tags="" position="785,846" size="100,100">&quot;I don&#39;t want to hear it, James.&quot; Mrs Carter sighs. She seems surprisingly... human.
+&quot;My husband&#39;s sick. Real sick. We need money, and I&#39;ve gotta turn out anyone who&#39;s late to pay from now on.&quot; She looks at you with pity.
+//I&#39;m not sure if my dream has ended...//
+&quot;I&#39;m sorry, but you&#39;ve got until this afternoon to leave. You look hungover, so I&#39;ll save you the trouble. It&#39;s noon.&quot; The clock seems to say it&#39;s 0 o&#39;clock. You rub your eyes.
+&quot;Look, I feel bad for doing this to you. You do good work. So I&#39;ve talked to a friend of mine in Arkham, up north. She can rent a room for you, and cheaper too. Downside is less work, I guess. Anyway, good luck. In these times, you&#39;ll need it.&quot;
+She closes the door and you hear her footsteps go down the staircase.
+
+//That was... sudden.
+
+And it seems she left me no choice. Well, I&#39;ve heard of Arkham. It&#39;s not too far from Boston, and if I have guaranteed cheaper rent, I don&#39;t see much of a problem.//
+
+[[It&#39;s time to start packing.]]</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="" position="583,814" size="100,100">[[Inventory]]</tw-passagedata><tw-passagedata pid="7" name="Inventory" tags="" position="583,964" size="100,100">You have $$$PlayerMoney.
+&lt;&lt;if $inventory.length == 0&gt;&gt;You are not carrying anything.&lt;&lt;else&gt;&gt;You are carrying:
+&lt;&lt;invWithLinks&gt;&gt; &lt;&lt;endif&gt;&gt;
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="785,996" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
