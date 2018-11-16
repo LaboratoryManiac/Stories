@@ -22,6 +22,12 @@ a
   background-color: #00825A;
 }
 
+.titlecard {
+	font-size: 400%;
+	text-align: center;
+}
+
+
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
@@ -124,20 +130,30 @@ macros.emptyInv = {
 };
 // End Inventory Macros
 
+//Begin Fade In Macro
+postdisplay['fadeIn-text'] = function (taskName) {
+	$('.fadeIn').hide().fadeIn(12000);
+    // change 10000 to whatever time you want, in milliseconds
+};
+//End Fade In Macro
 
 
 
-</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,396" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
+
+</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,394" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
 
 And yet, there is something much darker at work, something much more terrifying and horrible than anyone could possibly imagine. In the darkest depths of the Earth, something has been slumbering for millenia. And, finally, it has begun to stir.//
 
 [[Rise and shine.]]
-&lt;&lt;initInv&gt;&gt;
-&lt;&lt;set $PlayerMoney = 500&gt;&gt;
-&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;drowning&quot; loop play&gt;&gt;
+&lt;&lt;initInv&gt;&gt;\
+&lt;&lt;set $PlayerMoney = 500&gt;&gt;\
+&lt;&lt;set $rainsoundtrack to false&gt;&gt;\
+&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;battle&quot; &quot;media/soundtrack/battle.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;rain&quot; &quot;media/soundtrack/rain.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;battle&quot; time 60 play&gt;&gt;\
 You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
 
 In 1917 the United States entered the Great War. You and several of your friends signed up early on. And boy, did you get in the thick of it. You fought in the mud and blood of the trenches for a year, and then during the German Spring Offensive you were hit in the leg by shrapnel from a shell. Permanent leg damage and shell shock was enough to ensure you left the battlefield for good. You still have a pretty serious limp.
@@ -146,20 +162,28 @@ And you weren&#39;t the only one hit by that shell. Your pal Tommy Robins - you&
 
 &quot;JAMES!&quot;
 
-You shoot up like a rocket, sideways off your couch and onto the floor. Your head slams into the wooden boards. It was aching enough as it was.
+You shoot up like a rocket, sideways off your couch and onto the floor. Your head slams into the wooden boards. It was aching enough as it was. You can hear rain bucketing down outside.
 
 Someone&#39;s pounding on your door. Evidently they already know who you are.
 
 [[Open the door.]]
 
-[[Take in the situation.]]</tw-passagedata><tw-passagedata pid="3" name="Open the door." tags="" position="785,696" size="100,100">You unlock the latch on the door, and it instantly flies open, narrowly missing your sorry skull. Your landlady appears in the doorway. The she-devil looks even madder than usual.
+[[Take in the situation.]]</tw-passagedata><tw-passagedata pid="3" name="Open the door." tags="" position="786,694" size="100,100">&lt;&lt;if $rainsoundtrack is false&gt;&gt;\
+&lt;&lt;set $rainsoundtrack to true&gt;&gt;\
+&lt;&lt;audio &quot;battle&quot; stop&gt;&gt;\
+&lt;&lt;audio &quot;rain&quot; loop play&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
+You unlock the latch on the door, and it instantly flies open, narrowly missing your sorry skull. Your landlady appears in the doorway. The she-devil looks even madder than usual.
 &quot;Where&#39;s my rent!?&quot;
 
 [[&quot;I... uh...&quot;-&gt;Eviction]]
 
 [[&quot;I don&#39;t have it on me, but-&quot;-&gt;Eviction]]
 
-[[&quot;Look I know it&#39;s overdue, once I-&quot;-&gt;Eviction]]</tw-passagedata><tw-passagedata pid="4" name="Take in the situation." tags="" position="935,696" size="100,100">You stagger to your feet, and slowly look around so as to not burst your brain. You&#39;re in your office, located on the 1st floor of an apartment building in the middle of Boston. Everything seems to be as it was the last you remember, an- when //was// the last you remember?
+[[&quot;Look I know it&#39;s overdue, once I-&quot;-&gt;Eviction]]</tw-passagedata><tw-passagedata pid="4" name="Take in the situation." tags="" position="941,696" size="100,100">&lt;&lt;set $rainsoundtrack to true&gt;&gt;\
+&lt;&lt;audio &quot;battle&quot; stop&gt;&gt;\
+&lt;&lt;audio &quot;rain&quot; loop play&gt;&gt;\
+You stagger to your feet, and slowly look around so as to not burst your brain. You&#39;re in your office, located on the 1st floor of an apartment building in the middle of Boston. Everything seems to be as it was the last you remember, an- when //was// the last you remember?
 
 Last night you were sitting back in your armchair at your desk, re-reading the file of an old missing persons case from a few months back. Nothing that interesting, just some poor old bugger in Salem. Yeah, witch-trial Salem. You had a glass of whiskey. Looking over to your desk now, you spot a bottle of Scotch, completely drained. 
 
@@ -172,7 +196,7 @@ And that&#39;s your landlady, Mrs Carter. You&#39;d better answer the door.
 [[Open the door.]]</tw-passagedata><tw-passagedata pid="5" name="Eviction" tags="" position="785,846" size="100,100">&quot;I don&#39;t want to hear it, James.&quot; Mrs Carter sighs. She seems surprisingly... human.
 &quot;My husband&#39;s sick. Real sick. We need money, and I&#39;ve gotta turn out anyone who&#39;s late to pay from now on.&quot; She looks at you with pity.
 //I&#39;m not sure if my dream has ended...//
-&quot;I&#39;m sorry, but you&#39;ve got until this afternoon to leave. You look hungover, so I&#39;ll save you the trouble. It&#39;s noon.&quot; The clock seems to say it&#39;s 0 o&#39;clock. You rub your eyes.
+&quot;I&#39;m sorry, but you&#39;ve got until this evening to leave. You look hungover, so I&#39;ll save you the trouble. It&#39;s noon.&quot; The clock seems to say it&#39;s pancakes o&#39;clock. You rub your eyes.
 &quot;Look, I feel bad for doing this to you. You do good work. So I&#39;ve talked to a friend of mine in Arkham, up north. She can rent a room for you, and cheaper too. Downside is less work, I guess. Anyway, good luck. In these times, you&#39;ll need it.&quot;
 She closes the door and you hear her footsteps go down the staircase.
 
@@ -183,5 +207,23 @@ And it seems she left me no choice. Well, I&#39;ve heard of Arkham. It&#39;s not
 [[It&#39;s time to start packing.]]</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="" position="583,814" size="100,100">[[Inventory]]</tw-passagedata><tw-passagedata pid="7" name="Inventory" tags="" position="583,964" size="100,100">You have $$$PlayerMoney.
 &lt;&lt;if $inventory.length == 0&gt;&gt;You are not carrying anything.&lt;&lt;else&gt;&gt;You are carrying:
 &lt;&lt;invWithLinks&gt;&gt; &lt;&lt;endif&gt;&gt;
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="786,997" size="100,100">&lt;&lt;audio &quot;drowning&quot; stop&gt;&gt;
-&lt;&lt;audio &quot;prologue_credits&quot; play&gt;&gt;</tw-passagedata></tw-storydata>
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="789,999" size="100,100">&lt;&lt;audio &quot;rain&quot; stop&gt;&gt;\
+&lt;&lt;audio &quot;prologue_credits&quot; play&gt;&gt;\
+
+&lt;div class=&quot;fadeIn titleCard&quot;&gt;\
+    &lt;div align=&#39;center&#39; style=&#39;font-size: 600%;&#39;&gt;\
+    The Call of Cthulhu \
+	&lt;/div&gt;\
+&lt;/div&gt;\
+
+
+
+You don&#39;t have much furniture in your office. Armchair, desk, filing cabinets and a couple more chairs for visitors. All that will hopefully come with your new apartment. Since you&#39;ve known Mrs Carter she&#39;s shown herself to be evil, but not stupid. You&#39;ll still need all your files however. You start opening up your cabinets, and after thoroughly blowing the dust off your case files, you are slightly upset to dsicover just how few you really have. You could carry them all downstairs in one trip. 
+
+After stacking them next to the door, you go back to your desk and open its drawers. You take your [[M1911]], 6 .45 ACP rounds, a [[flashlight-&gt;Flashlight]] and battery, and your last [[bottle of Scotch-&gt;Scotch Whiskey]].
+
+&lt;&lt;addToInv &quot;M1911&quot;&gt;&gt;\
+&lt;&lt;addToInv &quot;Flashlight&quot;&gt;&gt;\
+&lt;&lt;addToInv &quot;Scotch Whiskey&quot;&gt;&gt;\
+
+[[To Arkham!]]</tw-passagedata><tw-passagedata pid="9" name="To Arkham!" tags="" position="788,1149" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="10" name="M1911" tags="" position="399,627" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="11" name="Flashlight" tags="" position="400,849" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="12" name="Flashlight Cell" tags="" position="402,959" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="13" name="Scotch Whiskey" tags="" position="400,1071" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="14" name="M1911 Round" tags="" position="402,738" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
