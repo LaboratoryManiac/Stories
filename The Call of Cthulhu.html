@@ -100,6 +100,7 @@ img.float-right {
 }
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
 // Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
 //
@@ -215,11 +216,12 @@ postdisplay['fadeIn-text'] = function (taskName) {
 ;Macro.add("fadein",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).hide().delay(a).fadeIn(t)}}),Macro.add("fadeout",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).delay(a).fadeOut(t)}});
 // end fading-macro-set.min.js
 
-</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="859,394" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
+
+</script><tw-passagedata pid="1" name="Boston, Massachusetts - 1920" tags="" position="800,350" size="100,100">//It is the year 1920, and the world is in upheaval. Communism is on the rise, and the United States has even begun imprisoning suspected communists. In Germany Adolf Hitler has presented a 25-point program to the German Worker&#39;s Party, which has now renamed itself the &quot;National Socialist German Workers&#39; Party&quot;. And the Prohibition has started in full force, preluding over a decade of organised crime, speakeasies and corrupt policemen. All in all it&#39;s shaping up to be a //lovely// ten years.
 
 And yet, there is something much darker at work, something much more terrifying and horrible than anyone could possibly imagine. In the darkest depths of the Earth, something has been slumbering for millenia. And, finally, it has begun to stir.//
 
-[[Rise and shine.]]</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="860,546" size="100,100">&lt;&lt;audio &quot;battle&quot; time 60 play&gt;&gt;\
+[[Rise and shine.]]</tw-passagedata><tw-passagedata pid="2" name="Rise and shine." tags="" position="800,500" size="100,100">&lt;&lt;audio &quot;battle&quot; time 60 play&gt;&gt;\
 You are Private Investigator James Thomas Wilson, born in 1896 and 23 years of age. Fair skin, brown hair, blue eyes. 170cm (5.6ft) in height and fairly well built. Your appearance does not give away much, but there is a lot going on beneath it.
 
 In 1917 the United States entered the Great War. You and several of your friends signed up early on. And boy, did you get in the thick of it. You fought in the mud and blood of the trenches for a year, and then during the German Spring Offensive you were hit in the leg by shrapnel from a shell. Permanent leg damage and shell shock was enough to ensure you left the battlefield for good. You still have a pretty serious limp.
@@ -234,7 +236,7 @@ Someone&#39;s pounding on your door. Evidently they already know who you are.
 
 [[Open the door.]]
 
-[[Take in the situation.]]</tw-passagedata><tw-passagedata pid="3" name="Open the door." tags="" position="786,694" size="100,100">&lt;&lt;if $rainsoundtrack is false&gt;&gt;\
+[[Take in the situation.]]</tw-passagedata><tw-passagedata pid="3" name="Open the door." tags="" position="800,650" size="100,100">&lt;&lt;if $rainsoundtrack is false&gt;&gt;\
 &lt;&lt;set $rainsoundtrack to true&gt;&gt;\
 &lt;&lt;audio &quot;battle&quot; stop&gt;&gt;\
 &lt;&lt;audio &quot;rain&quot; loop play&gt;&gt;\
@@ -246,7 +248,7 @@ You unlock the latch on the door, and it instantly flies open, narrowly missing 
 
 &quot;[[I don&#39;t have it on me, but--&gt;Eviction]]&quot;
 
-&quot;[[Look I know it&#39;s overdue, once I--&gt;Eviction]]&quot;</tw-passagedata><tw-passagedata pid="4" name="Take in the situation." tags="" position="941,696" size="100,100">&lt;&lt;set $rainsoundtrack to true&gt;&gt;\
+&quot;[[Look I know it&#39;s overdue, once I--&gt;Eviction]]&quot;</tw-passagedata><tw-passagedata pid="4" name="Take in the situation." tags="" position="950,650" size="100,100">&lt;&lt;set $rainsoundtrack to true&gt;&gt;\
 &lt;&lt;audio &quot;battle&quot; stop&gt;&gt;\
 &lt;&lt;audio &quot;rain&quot; loop play&gt;&gt;\
 You stagger to your feet, and slowly look around so as to not burst your brain. You&#39;re in your office, located on the 1st floor of an apartment building in the middle of Boston. Everything seems to be as it was the last you remember, an- when //was// the last you remember?
@@ -259,7 +261,7 @@ It&#39;s all adding up.
 
 And that&#39;s your landlady, Mrs Carter. You&#39;d better answer the door.
 
-[[Open the door.]]</tw-passagedata><tw-passagedata pid="5" name="Eviction" tags="" position="785,846" size="100,100">&quot;I don&#39;t want to hear it, James.&quot; Mrs Carter sighs. She seems surprisingly... human.
+[[Open the door.]]</tw-passagedata><tw-passagedata pid="5" name="Eviction" tags="" position="800,800" size="100,100">&quot;I don&#39;t want to hear it, James.&quot; Mrs Carter sighs. She seems surprisingly... human.
 &quot;My husband&#39;s sick. Real sick. We need money, and I&#39;ve gotta turn out anyone who&#39;s late to pay from now on.&quot; She looks at you with pity.
 //I&#39;m not sure if my dream has ended...//
 &quot;I&#39;m sorry, but you&#39;ve got until this evening to leave. You look hungover, so I&#39;ll save you the trouble. It&#39;s noon.&quot; The clock seems to say it&#39;s pancakes o&#39;clock. You rub your eyes.
@@ -270,12 +272,13 @@ She closes the door and you hear her footsteps go down the staircase.
 
 And it seems she left me no choice. Well, I&#39;ve heard of Arkham. It&#39;s not too far from Boston, and if I have guaranteed cheaper rent, I don&#39;t see much of a problem.//
 
-[[It&#39;s time to start packing.]]</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="" position="583,814" size="100,100">[[Inventory]]</tw-passagedata><tw-passagedata pid="7" name="Inventory" tags="" position="584,963" size="100,100">You have $$$PlayerMoney.
+[[It&#39;s time to start packing.]]</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="" position="400,200" size="100,100">[[Status]]
+[[Inventory]]</tw-passagedata><tw-passagedata pid="7" name="Inventory" tags="" position="300,400" size="100,100">You have $$$PlayerMoney.
 You have $FlashlightCells flashlight cells left.
 You have $M1911Ammo M1911 rounds left.
 &lt;&lt;if $inventory.length == 0&gt;&gt;You are not carrying anything.&lt;&lt;else&gt;&gt;You are carrying:
 &lt;&lt;invWithLinks&gt;&gt; &lt;&lt;endif&gt;&gt;
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="787,1000" size="100,100">You&#39;ve called a cab to pick you up and drive you to Arkham. Time to pack your several belongings.
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="It&#39;s time to start packing." tags="" position="800,950" size="100,100">You&#39;ve called a cab to pick you up and drive you to Arkham. Time to pack your several belongings.
 
 You don&#39;t have much furniture in your office. Armchair, desk, filing cabinets and a couple more chairs for visitors. Oh, and your bed. Apartments are expesnive. But all that will hopefully come with your new apartment - since you&#39;ve known Mrs Carter she&#39;s shown herself to be evil, but not stupid. Of course, you&#39;ll still need all your files. You start opening up your cabinets, and after thoroughly blowing the dust off your case files, you are slightly upset to discover just how few you really have. You could carry them all downstairs in one trip. 
 
@@ -291,7 +294,7 @@ You toss your key on the Carters&#39; doormat and exit the building. Outside it&
 &lt;&lt;set $M1911Ammo = 7&gt;&gt;\
 &lt;&lt;set $FlashlightCells = 1&gt;&gt;\
 
-[[To Arkham!]]</tw-passagedata><tw-passagedata pid="9" name="To Arkham!" tags="" position="789,1149" size="100,100">&lt;&lt;audio &quot;rain&quot; stop&gt;&gt;\
+[[To Arkham!]]</tw-passagedata><tw-passagedata pid="9" name="To Arkham!" tags="" position="800,1100" size="100,100">&lt;&lt;audio &quot;rain&quot; stop&gt;&gt;\
 &lt;&lt;audio &quot;car_start&quot; play&gt;&gt;\
 &lt;&lt;audio &quot;prologue_credits&quot; play&gt;&gt;\
 \
@@ -301,15 +304,25 @@ You toss your key on the Carters&#39; doormat and exit the building. Outside it&
 	&lt;/div&gt;\
 &lt;/div&gt;\
 \
-&lt;&lt;fadein 4s 7s&gt;&gt;
-	Jack Rodden
-&lt;&lt;/fadein&gt;&gt;
 
 
 
-&lt;&lt;fadein 4s 14s&gt;&gt;
+
+
+&lt;&lt;fadein 4s&gt;&gt;\
+&quot;The most merciful thing in the world, I think, is the inability of 	the human mind to correlate all its contents.&quot;
+&lt;&lt;/fadein&gt;&gt;\
+&lt;&lt;fadein 4s 4s&gt;&gt;\
+&quot;We live on a placid island of ignorance in the midst of black seas of infinity, and it was not meant that we should voyage far.&quot;
+&lt;&lt;/fadein&gt;&gt;\
+&lt;&lt;fadein 4s 8s&gt;&gt;\
+- H.P. Lovecraft
+&lt;&lt;/fadein&gt;&gt;\
+
+
+&lt;&lt;fadein 4s 14s&gt;&gt;\
 	[[The Great Dreamer beckons...]]
-&lt;&lt;/fadein&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="M1911" tags="" position="399,627" size="100,100">&lt;img src=&quot;media\images\M1911.jpg&quot; class=&quot;float-left&quot;&gt;
+&lt;&lt;/fadein&gt;&gt;\</tw-passagedata><tw-passagedata pid="10" name="M1911" tags="" position="100,500" size="100,100">&lt;img src=&quot;media\images\M1911.jpg&quot; class=&quot;float-left&quot;&gt;
 
 
 
@@ -321,7 +334,7 @@ You toss your key on the Carters&#39; doormat and exit the building. Outside it&
 
 
 Your trusty handgun, acquired in the last year of the Great War. It&#39;s kept you safe through many a close shave.
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Flashlight" tags="" position="400,745" size="100,100">&lt;img src=&quot;media\images\Flashlight.jpg&quot; class=&quot;float-left&quot;&gt;
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Flashlight" tags="" position="100,700" size="100,100">&lt;img src=&quot;media\images\Flashlight.jpg&quot; class=&quot;float-left&quot;&gt;
 
 
 
@@ -333,7 +346,7 @@ Your trusty handgun, acquired in the last year of the Great War. It&#39;s kept y
 
 
 A sturdy and modern flashlight. Each cell illuminates for an average of 2-4 hours.
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Scotch Whiskey" tags="" position="401,860" size="100,100">&lt;img src=&quot;media\images\Scotch Whiskey.jpg&quot; class=&quot;float-left&quot;&gt;
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Scotch Whiskey" tags="" position="100,600" size="100,100">&lt;img src=&quot;media\images\Scotch Whiskey.jpg&quot; class=&quot;float-left&quot;&gt;
 
 
 
@@ -345,7 +358,7 @@ A sturdy and modern flashlight. Each cell illuminates for an average of 2-4 hour
 
 
 King George IV&#39;s pure malt scotch whiskey. Strong and with a nice bite, just how you like it.
-&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="The Great Dreamer beckons..." tags="" position="790,1320" size="100,100">&lt;&lt;audio &quot;car_stop&quot; play&gt;&gt;\
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="The Great Dreamer beckons..." tags="" position="700,1250" size="100,100">&lt;&lt;audio &quot;car_stop&quot; play&gt;&gt;\
 You&#39;ve been on the road for a little over an hour, and not a word has been spoken by your driver. You&#39;ve managed to preoccupy yourself with watching the countryside roll past, but in the last few minutes it&#39;s been swept away and replaced by drab buildings and the occasional person. At a guess, you&#39;d say you&#39;ve entered Salem. 
 
 &quot;We&#39;re stopping off for gas here. Only 6 or so miles till Arkham now.&quot;
@@ -356,7 +369,7 @@ You&#39;ve been on the road for a little over an hour, and not a word has been s
 
 [[Get out of the car.]]
 
-[[Stay seated.]]</tw-passagedata><tw-passagedata pid="14" name="Introduction" tags="" position="854,236" size="100,100">Welcome to The Call of Cthulhu! I hope you enjoy the game.
+[[Stay seated.]]</tw-passagedata><tw-passagedata pid="14" name="Introduction" tags="" position="800,200" size="100,100">Welcome to The Call of Cthulhu! I hope you enjoy the game.
 
 Warnings/hints:
 
@@ -364,19 +377,53 @@ Lots of sound, so headphones or a low volume are recommended.
 
 Every choice can change the game. Don&#39;t expect any choice you make to be meaningless (once the prologue has ended).
 
+You will not be informed about any changes in your health or sanity, although often you will be able to tell that there has been a change from the description in a paragraph. It is a good idea to check your status regularly.
+
 Only play if you know you&#39;re mature, there&#39;s no age limit but probably no 10 year olds or anything.
 
 [[Cthulhu calls...-&gt;Boston, Massachusetts - 1920]]
 
 &lt;&lt;initInv&gt;&gt;\
+&lt;&lt;set $PlayerHealth = 100&gt;&gt;\
+&lt;&lt;set $PlayerSanity = 100&gt;&gt;\
 &lt;&lt;set $PlayerMoney = 500&gt;&gt;\
 &lt;&lt;set $rainsoundtrack to false&gt;&gt;\
 &lt;&lt;cacheaudio &quot;car_start&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;car_stop&quot; &quot;media/audio/car_stop.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;car_door&quot; &quot;media/audio/car_door.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;building_door&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;battle&quot; &quot;media/soundtrack/battle.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;rain&quot; &quot;media/soundtrack/rain.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;\
 &lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;\
-&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="15" name="Get out of the car." tags="" position="715,1470" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="16" name="Stay seated." tags="" position="865,1470" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="15" name="Get out of the car." tags="" position="700,1400" size="100,100">&lt;&lt;audio &quot;car_door&quot; play&gt;&gt;\
+You wait a moment for your driver to walk far enough away so as to not hear you, before opening the door and exiting the car. You look around. The street you&#39;re on is quite dull in colour, and in personality. A few people are walking down it, but other than that there are no signs of life. Most buildings on either side of the road appear to be houses but you spy two distinct shops. 
+
+One, across the road from your car, looks very old, with a plain wooden door and no decoration bar the metal sign hanging above it, with &quot;Johnson&#39;s Antiquities&quot; printed in black paint.
+
+The other is up the opposite end of the street to the gas station and you cannot yet make out the sign. It is easy to spot however; the building is painted an odd shade of yellow and it has two tables outside - you imagine it is a restaurant of some kind.
+
+[[Enter Johnson&#39;s Antiquities]]
+
+[[Enter the restaurant]]
+
+[[Return to your car]]</tw-passagedata><tw-passagedata pid="16" name="Stay seated." tags="" position="1100,1400" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="17" name="Enter Johnson&#39;s Antiquities" tags="" position="600,1600" size="100,100">&lt;&lt;audio &quot;building_door&quot; play&gt;&gt;\
+&lt;&lt;set $PlayerSanity -= 1&gt;&gt;
+You enter the building and close the flimsy wooden door behind you. The first thing you notice is that there are no lights, and the entire room is pitch black. Then an old, strong musky smell hits you and you cough violently. Before you can take a look around you hear a rasping voice address you.
+
+&quot;Ah, Mr Wilson. I&#39;ve been expecting you for a long, long time now.&quot; 
+
+Surprised, you peer around but still see nothing. You instinctively reach for your holster, but then the lights flicker on. They&#39;re startlingly bright and you blink to readjust your eyes, which are drawn to a very old-looking man walking down a staircase that looks as though it will fall apart any second. He is dressed in a brown petticoat and is carrying a cane with an ornate sculpted handle. You cannot tell what it is meant to represent - it has some strange eye on its top, with some curling objects along the side.
+
+&quot;Welcome to my shop, Mr Wilson. It is a pleasure to finally make your acquaintance. Unfortunately, my shop is closed, but I do have a gift for you.&quot;
+
+He reaches into his coat pocket, and pulls out </tw-passagedata><tw-passagedata pid="18" name="Enter the restaurant" tags="" position="800,1600" size="100,100">&lt;&lt;audio &quot;building_door&quot; play&gt;&gt;\
+</tw-passagedata><tw-passagedata pid="19" name="Return to your car" tags="" position="900,1300" size="100,100">&lt;&lt;audio &quot;car_door&quot; play&gt;&gt;\
+You think better of any unnecessary exploration at this time and return to your car.
+
+[[Re-enter the car-&gt;Stay seated.]]</tw-passagedata><tw-passagedata pid="20" name="Status" tags="" position="500,400" size="100,100">!Health
+You are at $PlayerHealth% health.
+
+!Sanity
+You are at $PlayerSanity% sanity.</tw-passagedata></tw-storydata>
