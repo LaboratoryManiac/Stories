@@ -1,0 +1,271 @@
+<tw-storydata name="The Call of Cthulhu - The Rising Deep" startnode="" creator="Twine" creator-version="2.2.1" ifid="CCE42972-4A67-45D8-BF48-56F096530DEC" zoom="1" format="SugarCube" format-version="2.27.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre:400,400i,700,700i');
+
+body, tw-story
+{
+  font-family: 'Averia Serif Libre', cursive;
+  font-size: 18px;
+}
+
+body
+{
+  background-color: #f5fff0;
+  color: #002E20;
+}
+ 
+a
+{
+  color: #632A30;
+}
+
+#ui-bar, #ui-body
+{
+  background-color: #00825A;
+}
+
+.titlecard {
+	font-size: 400%;
+	text-align: center;
+}
+
+img.float-left {
+	float: left;
+}
+img.float-right {
+	float: right;
+}
+
+@-webkit-keyframes shakeanim {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+@-o-keyframes shakeanim {
+	0% { -o-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -o-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -o-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -o-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -o-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -o-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -o-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -o-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -o-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -o-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -o-transform: translate(1px, -2px) rotate(-1deg); }
+}
+@keyframes shakeanim {
+	0% { transform: translate(2px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(0px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(2px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(2px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake-block,
+.shake {
+	-webkit-animation-duration: 0.8s;
+	     -o-animation-duration: 0.8s;
+	        animation-duration: 0.8s;
+	-webkit-animation-iteration-count: infinite;
+	     -o-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite;
+	-webkit-animation-name: shakeanim;
+	     -o-animation-name: shakeanim;
+	        animation-name: shakeanim;
+	-webkit-animation-timing-function: linear;
+	     -o-animation-timing-function: linear;
+	        animation-timing-function: linear;
+	-webkit-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+	     -o-transform-origin: 50% 50%;
+	        transform-origin: 50% 50%;
+}
+.shake-block {
+	display: block;
+}
+.shake {
+	display: inline-block;
+}
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Begin Inventory Macros
+// Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
+//
+// Instructions:
+//
+// 1. In a passage, check if there's an item in the inventory...
+// ...if not, give the user the option to link to a passage that adds it to inventory:
+// <<if $inventory.indexOf("An Unsigned Note") == -1>>There is a note here. [[Pick up the note.]]<<endif>>
+//
+// 2. In a passage, check if there's an item in the inventory..
+// ...if so, give the user a choice to progress to a new passage:
+// <<if $inventory.indexOf("The Golden Key") != -1>>[[Unlock the door.]]<<endif>>
+//
+// 3. To add an "Inventory" link in your sidebar menu, create a passage named "StoryMenu".
+// In it, create a link to your inventory's passage: [[Inventory]] or [[Backpack]], for example.
+// Create a passage named "Inventory", and in it, write something like the following:
+// <<if $inventory.length == 0>>You are not carrying anything.<<else>>You are carrying:
+// <<invWithLinks>> <<endif>>
+// <<back>>
+
+// A helper function for the following macros.
+window.getInv = function() {
+  return state.active.variables.inventory;
+}
+
+// Starts your inventory. You need to call this once at the start of your game in order to make the inventory work.
+// Usage: Place <<initInv>> in your StoryInit passage. Don't have a StoryInit passage? Make one.
+macros.initInv = {
+  handler: function(place, macroName, params, parser) {
+    state.active.variables.inventory = [];
+  }
+};
+
+// Add an item to your inventory:
+// Usage: <<addToInv rock>> or <<addToInv "a smooth rock">>
+macros.addToInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    if (state.active.variables.inventory.indexOf(params[0]) == -1) {
+      state.active.variables.inventory.push(params[0]);
+    }
+  }
+};
+
+// Removes an item from your inventory
+// Usage: <<removeFromInv rock>> or <<removeFromInv "a smooth rock">>
+macros.removeFromInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    var index = state.active.variables.inventory.indexOf(params[0]);
+    if (index != -1) {
+      state.active.variables.inventory.splice(index, 1);
+    }
+  }
+};
+
+// Display the inventory as a list: Rock, Paper, Scissors
+// This can go in any passage, but the best spot would be your [[Inventory]] passage.
+// Usage: <<inv>>
+macros.inv = {
+  handler: function(place, macroName, params, parser) {
+    if (state.active.variables.inventory.length == 0) {
+      new Wikifier(place, 'nothing');
+    } else {
+      new Wikifier(place, state.active.variables.inventory.join(','));
+    }
+  }
+};
+
+// Display the inventory as a series of links to passages with the same names.
+// This can go in any passage, but the best spot would be your [[Inventory]] passage.
+// Usage: <<invWithLinks>>
+// If those passages don't exist, the links will be broken.
+// There is a line break after every item in the inventory.
+macros.invWithLinks = { 
+  handler: function(place, macroName, params, parser) {
+    if (state.active.variables.inventory.length == 0) {
+      new Wikifier(place, 'nothing');
+    } else {
+      new Wikifier(place, '[[' + state.active.variables.inventory.join(']]<br>[[') + ']]');
+    }
+  }
+};
+
+// Empty the inventory entirely.
+// Note: This is not like "dropping" an object; they are not added to the current room/passage. It just erases them all entirely.
+// Usage: <<emptyInv>>
+macros.emptyInv = { 
+  handler: function(place, macroName, params, parser) {
+    state.active.variables.inventory = []
+  }
+};
+// End Inventory Macros
+
+//Begin Fade In Macro
+postdisplay['fadeIn-text'] = function (taskName) {
+	$('.fadeIn').hide().fadeIn(24000);
+    // change 10000 to whatever time you want, in milliseconds
+};
+//End Fade In Macro
+
+//Begin Shake Macro
+!function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2||"undefined"==typeof version.minor||version.minor<5)throw new Error("<<shake>> macro requires SugarCube 2.5.0 or greater, aborting load");Macro.add("shake",{tags:null,handler:function(){var duration=this.args.length>0?this.args[0]:1/0,shakeClass="shake";if(1/0!==duration)try{duration=Math.max(Engine.minDomActionDelay,Util.fromCssTime(duration))}catch(e){return this.error(e.message)}Config.debug&&this.debugView.modes({block:!0});var $wrapper=jQuery(document.createElement("span"));$wrapper.addClass("macro-"+this.name+" "+shakeClass).wiki(this.payload[0].contents).appendTo(this.output),1/0!==duration&&setTimeout(function(){$wrapper.removeClass(shakeClass)},Engine.minDomActionDelay+duration)}}),Macro.add(["shakescreen","shaketarget"],{handler:function(){var $targets,duration,shakeClass;if("shakescreen"===this.name)$targets=jQuery("#passages"),duration=this.args.length>0?this.args[0]:1/0,shakeClass="shake-block";else{if(0===this.args.length)return this.error("no selector specified");if($targets=jQuery(this.args[0]),0===$targets.length)return this.error('no elements matched the selector "'+this.args[0]+'"');duration=this.args.length>1?this.args[1]:1/0,shakeClass="block"===jQuery($targets[0]).css("display")?"shake-block":"shake"}if("stop"===duration)return void $targets.removeClass(shakeClass);if(1/0!==duration)try{duration=Math.max(Engine.minDomActionDelay,Util.fromCssTime(duration))}catch(e){return this.error(e.message)}$targets.addClass(shakeClass),1/0!==duration&&setTimeout(function(){$targets.removeClass(shakeClass)},Engine.minDomActionDelay+duration)}})}();
+//End Shake Macro
+
+// fading-macro-set.min.js, for SugarCube 2, by Chapel
+;Macro.add("fadein",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).hide().delay(a).fadeIn(t)}}),Macro.add("fadeout",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=1<this.args.length?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).delay(a).fadeOut(t)}});
+// end fading-macro-set.min.js
+
+
+
+</script><tw-passagedata pid="1" name="StoryMenu" tags="" position="400,200" size="100,100">[[Status]]
+[[Inventory]]</tw-passagedata><tw-passagedata pid="2" name="Inventory" tags="" position="300,400" size="100,100">You have $$$PlayerMoney.
+You have $FlashlightCells flashlight cells left.
+You have $M1911Ammo M1911 rounds left.
+&lt;&lt;if $inventory.length == 0&gt;&gt;You are not carrying anything.&lt;&lt;else&gt;&gt;You are carrying:
+&lt;&lt;invWithLinks&gt;&gt; &lt;&lt;endif&gt;&gt;
+&lt;&lt;back&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Introduction" tags="" position="800,200" size="100,100">Welcome to The Call of Cthulhu! I hope you enjoy the game.
+
+Warnings/hints:
+
+Lots of sound, so headphones or a low volume are recommended.
+
+Every choice can change the game. Don&#39;t expect any choice you make to be meaningless (once the prologue has ended).
+
+You will not be informed about any changes in your health or sanity, although often you will be able to tell that there has been a change from the description in a paragraph. It is a good idea to check your status regularly.
+
+Only play if you know you&#39;re mature, there&#39;s no age limit but probably no 10 year olds or anything.
+
+[[Cthulhu calls...-&gt;Boston, Massachusetts - 1920]]
+
+&lt;&lt;initInv&gt;&gt;\
+&lt;&lt;set $PlayerHealth = 100&gt;&gt;\
+&lt;&lt;set $PlayerSanity = 100&gt;&gt;\
+&lt;&lt;set $PlayerMoney = 500&gt;&gt;\
+&lt;&lt;set $rainsoundtrack to false&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_start&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_stop&quot; &quot;media/audio/car_stop.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;car_door&quot; &quot;media/audio/car_door.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;building_door&quot; &quot;media/audio/car_start.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;drowning&quot; &quot;media/soundtrack/drowning.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;battle&quot; &quot;media/soundtrack/battle.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;rain&quot; &quot;media/soundtrack/rain.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;prologue_credits&quot; &quot;media/soundtrack/prologue_credits.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;ambient&quot; &quot;media/soundtrack/ambient.mp3&quot;&gt;&gt;\
+&lt;&lt;cacheaudio &quot;end_credits&quot; &quot;media/soundtrack/end_credits.mp3&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="4" name="Status" tags="" position="500,400" size="100,100">!Health
+You are at $PlayerHealth% health.
+
+!Sanity
+You are at $PlayerSanity% sanity.</tw-passagedata><tw-passagedata pid="5" name="The Plot" tags="" position="699,338" size="100,100"> Björn Óbrjótandi - lives alones in Billington&#39;s Wood
+ Born in Iceland, not as good at English
+ Very little contact with other people, orphaned when a few years old and mentored by Gustaf since then
+ Gustaf Firkse - master wilderness survivor, legend amongst those that know him
+ Reasonably strong, incredible constitution and willpower
+ Uneducated, learned the ways of survival in the wilderness from Gustaf Firske. Owns Gustaf&#39;s axe, passed on at end of apprenticeship
+ Very ugly, due to hideous scarring across his face
+ Scarring - something attacked and killed Gustaf, wounded Bjorn? 1
+ Fought a bear/wolf?
+ Could face down a mule if they were in each other&#39;s way
+ Will not stop once his mind is set on something
+Beginning of story, meets cultists? Becomes hell-bent on stopping them, possibly tied with 1</tw-passagedata></tw-storydata>
